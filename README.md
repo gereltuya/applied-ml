@@ -227,7 +227,7 @@ Average Relative Representation Error: 0.55995744
 4. Посчитать метрику accuracy и вывести ее. Вывести несколько рандомных картинок с предсказанными и реальными лейблами.
 
 ### Решение
-- **[hw6.ipynb (на Google Colab)](https://colab.research.google.com/drive/1ySulq7IOkWEXQZe0BjBpNgp0yt0LcVii?usp=sharing)**
+- **[hw6.ipynb (на Google Colab)](https://colab.research.google.com/drive/1aY85TEa3FB57XQQMvvlPT2oItZipE6CU?usp=sharing)**
 
 ### Выводы
 
@@ -264,7 +264,7 @@ Epoch 5/10: Train Loss: 0.0833, Train Acc: 0.9738, Val Loss: 0.0939, Val Acc: 0.
 4. Дистилляция
 
 ### Решение
-- **[hw7.ipynb (на Google Colab)](https://colab.research.google.com/drive/15-REtUTCM69wnveXtiqee4VyW3qbunb6?usp=sharing)**
+- **[hw7.ipynb (на Google Colab)](https://colab.research.google.com/drive/1cu647fIWgyiOmOxtLOuqBYKugYVCTR70?usp=sharing)**
 
 ### Выводы
 
@@ -341,11 +341,10 @@ Epoch 2: Train Loss: 0.4457, Train Acc: 0.9754, Val Loss: 0.4328, Val Acc: 0.983
     7. Autoencoder
 
 ### Выводы
-- Чтобы обеспечить корректное сравнение методов обнаружения аномалий, использовались схожие параметры, в частности, `contamination` был установлен на **0.01**, где это применимо.
-- **Isolation Forest** выявил наибольшее количество аномалий, но, похоже, он переоценивает их количество.
-- **Local Outlier Factor, One-Class SVM и DBSCAN** показали схожие результаты, обнаружив умеренное количество аномалий.
-- **Elliptic Envelope и Autoencoder** выявили схожие аномалии, но с разными характеристиками:
-    - **Elliptic Envelope** обнаружил в основном выбросы вверх.
-    - **Autoencoder** отметил также некоторые низкие значения как аномальные.
-- **KNN** не выявил никаких аномалий.
-- В заключение, каждый метод обладает своей уникальной чувствительностью к аномалиям, даже при использовании аналогичных параметров настройки.
+- После тестирования различных параметров для различных методов некоторые из методов теперь показывают гораздо лучшее обнаружение аномалий.
+- **Isolation Forest** с `contamination=0.005` дает наилучший результат.
+- **LOF** с `neighbors=20, contamination=0.005` дает наилучший результат.
+- **One-Class SVM** с `nu=0.01` дает наилучший результат.
+- **DBSCAN** с `eps=0,1, min_samples=20` дает наилучший результат.
+- **Elliptic Envelope** с `contamination=0.005` дает наилучший результат.
+- Но результаты **KNN** и **Autoencoder** не улучшились, несмотря на тестирование множества различных комбинаций параметров.
